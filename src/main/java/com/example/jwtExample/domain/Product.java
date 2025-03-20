@@ -22,7 +22,6 @@ public class Product {
     }
 
     public Product(){
-
     }
 
     public long getId() {
@@ -58,8 +57,5 @@ public class Product {
     }
 
     String description;
-
-
-
 
 }
