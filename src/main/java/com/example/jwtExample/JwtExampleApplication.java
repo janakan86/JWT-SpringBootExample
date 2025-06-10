@@ -1,20 +1,25 @@
 package com.example.jwtExample;
 
+import com.example.jwtExample.domain.AppUser;
 import com.example.jwtExample.domain.Product;
+import com.example.jwtExample.repository.AppUserRepository;
 import com.example.jwtExample.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class JwtExampleApplication implements CommandLineRunner {
 
 	ProductRepository productRepository;
+	AppUserRepository appUserRepository;
 
-	JwtExampleApplication(ProductRepository productRepository){
+	JwtExampleApplication(ProductRepository productRepository,AppUserRepository appUserRepository){
 		this.productRepository = productRepository;
+		this.appUserRepository = appUserRepository;
 	}
 
 	private static final Logger logger = LoggerFactory.getLogger(
@@ -38,6 +43,12 @@ public class JwtExampleApplication implements CommandLineRunner {
 			logger.info("name: {}, description: {}",
 					product.getProductName(), product.getDescription());
 		}
+
+		AppUser userOne = new AppUser("jana", new BCryptPasswordEncoder().encode("password123"));
+		AppUser userTwo = new AppUser("admin", new BCryptPasswordEncoder().encode("password456"));
+
+		appUserRepository.save(userOne);
+		appUserRepository.save(userTwo);
 
 
 
