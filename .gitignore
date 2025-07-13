@@ -29,3 +29,7 @@ replay_pid*
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/libraries/Gradle__ch_qos_logback_logback_classic_1_5_6.xml
+.idea/libraries/Gradle__ch_qos_logback_logback_core_1_5_6.xml
+.idea/libraries/Gradle__com_fasterxml_classmate_1_7_0.xml
+/.idea
