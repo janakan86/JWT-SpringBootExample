@@ -22,4 +22,10 @@ public class ProductController {
     Iterable<Product> getAllProducts(){
         return productService.getAllProducts();
     }
+
+    @GetMapping("/testAdminPage")
+    String getAdminPage(){
+        return "test admin page";
+    }
+
 }

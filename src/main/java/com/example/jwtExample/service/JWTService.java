@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 @Component
@@ -25,8 +26,11 @@ public class JWTService {
 
 
     public String generateJWTToken(String userName, Map<String, Object> extraClaims) {
+
+        Map<String, Object> safeExtraClaims = (extraClaims != null) ? extraClaims : new HashMap<>();
+
         String jwtToken = Jwts.builder()
-                .setClaims(extraClaims)
+                .setClaims(safeExtraClaims)
                 .setSubject(userName)
                 .setIssuedAt(new Date(new Date().getTime()))
                 .setExpiration(expirationDate)

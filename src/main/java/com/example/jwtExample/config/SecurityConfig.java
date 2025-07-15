@@ -46,11 +46,11 @@ public class SecurityConfig {
         return httpSecurity
                // .formLogin(withDefaults()) //provide the default login page if not authenticated
                 .csrf((csrf) -> csrf.disable())
-                .authorizeHttpRequests((authorizeHttpRequests) ->
-                        authorizeHttpRequests.requestMatchers(HttpMethod.POST, "/login").permitAll()
+                .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
+                                .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                                .requestMatchers(HttpMethod.GET, "/testAdminPage").hasRole("ADMIN")
                                 .anyRequest().authenticated())
-                .addFilterBefore(authenticationFilter,
-                        UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
