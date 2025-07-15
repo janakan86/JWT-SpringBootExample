@@ -44,8 +44,8 @@ public class JwtExampleApplication implements CommandLineRunner {
 					product.getProductName(), product.getDescription());
 		}
 
-		AppUser userOne = new AppUser("jana", new BCryptPasswordEncoder().encode("password123"));
-		AppUser userTwo = new AppUser("admin", new BCryptPasswordEncoder().encode("password456"));
+		AppUser userOne = new AppUser("jana", new BCryptPasswordEncoder().encode("password123"),"USER");
+		AppUser userTwo = new AppUser("admin", new BCryptPasswordEncoder().encode("password456"),"ADMIN");
 
 		appUserRepository.save(userOne);
 		appUserRepository.save(userTwo);

@@ -17,10 +17,14 @@ public class AppUser {
     @Column(nullable = false)
     private String password;
 
-    public AppUser(String userName, String password) {
+    @Column(nullable = false)
+    private String role;
+
+    public AppUser(String userName, String password, String role) {
         super();
         this.userName = userName;
         this.password = password;
+        this.role = role;
     }
 
     public AppUser(){
@@ -50,5 +54,9 @@ public class AppUser {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getRole() { return role; }
+
+    public void setRole(String role) { this.role = role; }
 
 }
