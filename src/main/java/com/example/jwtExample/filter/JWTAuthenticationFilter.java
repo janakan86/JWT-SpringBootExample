@@ -1,6 +1,5 @@
 package com.example.jwtExample.filter;
 
-import com.example.jwtExample.config.SecurityConfig;
 import com.example.jwtExample.service.JWTService;
 import com.example.jwtExample.service.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
@@ -9,11 +8,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -22,12 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class AuthenticationFilter extends OncePerRequestFilter {
+public
+class JWTAuthenticationFilter extends OncePerRequestFilter {
 
     private final JWTService jwtService;
     private final UserDetailsServiceImpl userDetailsService;
 
-    AuthenticationFilter(JWTService jwtService, UserDetailsServiceImpl userDetailsService) {
+    JWTAuthenticationFilter(JWTService jwtService, UserDetailsServiceImpl userDetailsService) {
         this.jwtService = jwtService;
         this.userDetailsService = userDetailsService;
 
