@@ -6,11 +6,21 @@ To document
 
 
 Table of contents <br>
+[How run the example Spring Security Login](https://github.com/janakan86/JWT-SpringBootExample/edit/main/README.md#how-run-the-example-spring-security-login)
+<br/>
 [How to run the role based security example](https://github.com/janakan86/JWT-SpringBootExample/edit/main/README.md#how-to-run-the-role-based-security-example)
 
 
 
-## How to run the role based security example.
+## How run the example Spring Security Login
+This example contains a simple login mechanism using spring security
+Check out the code from the branch [Spring Security](https://github.com/janakan86/JWT-SpringBootExample/tree/SpringSecurity) <br/><br/>
+Run the JwtExampleApplication.java<br/>
+
+Login using the following credentials  username - jana password - password123
+The login should redirect to the home page
+
+## How to run the role based security example. (Spring Security + JWT )
 Check out the code from the branch [role based security](https://github.com/janakan86/JWT-SpringBootExample/tree/RoleBasedSecurity) <br/><br/>
 Run the JwtExampleApplication.java<br/>
 
